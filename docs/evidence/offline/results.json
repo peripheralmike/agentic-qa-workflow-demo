@@ -1,0 +1,145 @@
+[
+  {
+    "id": "minimum",
+    "requirement": "R3",
+    "expected": {
+      "status": 201,
+      "imported": 1
+    },
+    "actual": {
+      "status": 201,
+      "imported": 1
+    },
+    "passed": true
+  },
+  {
+    "id": "maximum",
+    "requirement": "R3",
+    "expected": {
+      "status": 201,
+      "imported": 1
+    },
+    "actual": {
+      "status": 201,
+      "imported": 1
+    },
+    "passed": true
+  },
+  {
+    "id": "zero",
+    "requirement": "R3",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "precision",
+    "requirement": "R3",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "currency",
+    "requirement": "R4",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "duplicate",
+    "requirement": "R2",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "empty",
+    "requirement": "R1",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "atomicity",
+    "requirement": "R5",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "negative",
+    "requirement": "R3",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "overflow",
+    "requirement": "R3",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "nonfinite",
+    "requirement": "R3",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  }
+]

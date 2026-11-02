@@ -1,0 +1,4 @@
+{
+  "error": "Client error '400 Bad Request' for url 'http://127.0.0.1:11434/api/chat'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+  "type": "HTTPStatusError"
+}

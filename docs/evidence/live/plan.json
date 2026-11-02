@@ -1,0 +1,216 @@
+{
+  "questions": [
+    "What is the purpose of the synthetic payment batch validation?",
+    "What are the specific requirements for the reference field?",
+    "What is the allowed range for payment amounts?",
+    "What currency is accepted?",
+    "What happens if a payment batch is invalid?",
+    "What is the expected status code for a valid batch?",
+    "What is the expected value of 'imported' for a valid batch?",
+    "What is the expected status code for an invalid batch?",
+    "What is the expected value of 'imported' for an invalid batch?",
+    "What is the unresolved latency question?"
+  ],
+  "scenarios": [
+    {
+      "id": "valid_batch_001",
+      "requirement": "R1",
+      "purpose": "Accept a nonempty batch of at most 100 payments",
+      "payments": [
+        {
+          "reference": "ref1",
+          "amount": "0.01",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 201,
+      "expected_imported": 1
+    },
+    {
+      "id": "valid_batch_002",
+      "requirement": "R1",
+      "purpose": "Accept a nonempty batch of at most 100 payments",
+      "payments": [
+        {
+          "reference": "ref2",
+          "amount": "1000000.00",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 201,
+      "expected_imported": 1
+    },
+    {
+      "id": "valid_batch_003",
+      "requirement": "R1",
+      "purpose": "Accept a nonempty batch of at most 100 payments",
+      "payments": [
+        {
+          "reference": "ref3",
+          "amount": "0.01",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 201,
+      "expected_imported": 1
+    },
+    {
+      "id": "invalid_batch_001",
+      "requirement": "R2",
+      "purpose": "Reference must contain 1\u201340 ASCII letters, digits, underscores or hyphens and be unique within the batch",
+      "payments": [
+        {
+          "reference": "ref4",
+          "amount": "0.01",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "invalid_batch_002",
+      "requirement": "R2",
+      "purpose": "Reference must contain 1\u201340 ASCII letters, digits, underscores or hyphens and be unique within the batch",
+      "payments": [
+        {
+          "reference": "ref5",
+          "amount": "0.01",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "invalid_batch_003",
+      "requirement": "R3",
+      "purpose": "Amounts are strings containing digits, a decimal point and exactly two decimal places. Allow 0.01 through 1000000.00 inclusive. Reject zero, negatives, excessive precision and non-finite numbers",
+      "payments": [
+        {
+          "reference": "ref6",
+          "amount": "0.00",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "invalid_batch_004",
+      "requirement": "R3",
+      "purpose": "Amounts are strings containing digits, a decimal point and exactly two decimal places. Allow 0.01 through 1000000.00 inclusive. Reject zero, negatives, excessive precision and non-finite numbers",
+      "payments": [
+        {
+          "reference": "ref7",
+          "amount": "-0.01",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "invalid_batch_005",
+      "requirement": "R3",
+      "purpose": "Amounts are strings containing digits, a decimal point and exactly two decimal places. Allow 0.01 through 1000000.00 inclusive. Reject zero, negatives, excessive precision and non-finite numbers",
+      "payments": [
+        {
+          "reference": "ref8",
+          "amount": "1000000.001",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "invalid_batch_006",
+      "requirement": "R3",
+      "purpose": "Amounts are strings containing digits, a decimal point and exactly two decimal places. Allow 0.01 through 1000000.00 inclusive. Reject zero, negatives, excessive precision and non-finite numbers",
+      "payments": [
+        {
+          "reference": "ref9",
+          "amount": "1.001",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "invalid_batch_007",
+      "requirement": "R4",
+      "purpose": "Accept only the exact currency code GBP",
+      "payments": [
+        {
+          "reference": "ref10",
+          "amount": "0.01",
+          "currency": "USD"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "invalid_batch_008",
+      "requirement": "R5",
+      "purpose": "Accept a wholly valid batch with status 201 and imported equal to batch size. For any invalid payment return 422 and imported 0",
+      "payments": [
+        {
+          "reference": "ref11",
+          "amount": "0.01",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "empty_batch",
+      "requirement": "R1",
+      "purpose": "Accept a nonempty batch of at most 100 payments",
+      "payments": [],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "duplicate_reference",
+      "requirement": "R2",
+      "purpose": "Reference must contain 1\u201340 ASCII letters, digits, underscores or hyphens and be unique within the batch",
+      "payments": [
+        {
+          "reference": "ref12",
+          "amount": "0.01",
+          "currency": "GBP"
+        },
+        {
+          "reference": "ref12",
+          "amount": "0.01",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "mixed_valid_invalid",
+      "requirement": "R5",
+      "purpose": "Accept a wholly valid batch with status 201 and imported equal to batch size. For any invalid payment return 422 and imported 0",
+      "payments": [
+        {
+          "reference": "ref13",
+          "amount": "0.01",
+          "currency": "GBP"
+        },
+        {
+          "reference": "ref14",
+          "amount": "0.01",
+          "currency": "USD"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    }
+  ]
+}

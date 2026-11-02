@@ -1,0 +1,179 @@
+{
+  "questions": [
+    "What measurable latency threshold replaces process quickly?"
+  ],
+  "scenarios": [
+    {
+      "id": "minimum",
+      "requirement": "R3",
+      "purpose": "minimum contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "0.01",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 201,
+      "expected_imported": 1
+    },
+    {
+      "id": "maximum",
+      "requirement": "R3",
+      "purpose": "maximum contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "1000000.00",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 201,
+      "expected_imported": 1
+    },
+    {
+      "id": "zero",
+      "requirement": "R3",
+      "purpose": "zero contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "0.00",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "precision",
+      "requirement": "R3",
+      "purpose": "precision contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "1.001",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "currency",
+      "requirement": "R4",
+      "purpose": "currency contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "1.00",
+          "currency": "USD"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "duplicate",
+      "requirement": "R2",
+      "purpose": "duplicate contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "1.00",
+          "currency": "GBP"
+        },
+        {
+          "reference": "A",
+          "amount": "1.00",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "empty",
+      "requirement": "R1",
+      "purpose": "empty contract check",
+      "payments": [],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "atomicity",
+      "requirement": "R5",
+      "purpose": "atomicity contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "1.00",
+          "currency": "GBP"
+        },
+        {
+          "reference": "B",
+          "amount": "0.00",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "negative",
+      "requirement": "R3",
+      "purpose": "negative contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "-1.00",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "overflow",
+      "requirement": "R3",
+      "purpose": "overflow contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "1000000.01",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "nonfinite",
+      "requirement": "R3",
+      "purpose": "nonfinite contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "NaN",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 422,
+      "expected_imported": 0
+    },
+    {
+      "id": "wrong-ai-assumption",
+      "requirement": "R3",
+      "purpose": "wrong ai assumption contract check",
+      "payments": [
+        {
+          "reference": "A",
+          "amount": "0.00",
+          "currency": "GBP"
+        }
+      ],
+      "expected_status": 201,
+      "expected_imported": 1
+    }
+  ]
+}

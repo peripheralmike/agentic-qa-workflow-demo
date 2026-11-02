@@ -1,0 +1,145 @@
+[
+  {
+    "id": "valid_batch_001",
+    "requirement": "R1",
+    "expected": {
+      "status": 201,
+      "imported": 1
+    },
+    "actual": {
+      "status": 201,
+      "imported": 1
+    },
+    "passed": true
+  },
+  {
+    "id": "valid_batch_002",
+    "requirement": "R1",
+    "expected": {
+      "status": 201,
+      "imported": 1
+    },
+    "actual": {
+      "status": 201,
+      "imported": 1
+    },
+    "passed": true
+  },
+  {
+    "id": "valid_batch_003",
+    "requirement": "R1",
+    "expected": {
+      "status": 201,
+      "imported": 1
+    },
+    "actual": {
+      "status": 201,
+      "imported": 1
+    },
+    "passed": true
+  },
+  {
+    "id": "invalid_batch_003",
+    "requirement": "R3",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "invalid_batch_004",
+    "requirement": "R3",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "invalid_batch_005",
+    "requirement": "R3",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "invalid_batch_006",
+    "requirement": "R3",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "invalid_batch_007",
+    "requirement": "R4",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "empty_batch",
+    "requirement": "R1",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "duplicate_reference",
+    "requirement": "R2",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  },
+  {
+    "id": "mixed_valid_invalid",
+    "requirement": "R5",
+    "expected": {
+      "status": 422,
+      "imported": 0
+    },
+    "actual": {
+      "status": 422,
+      "imported": 0
+    },
+    "passed": true
+  }
+]

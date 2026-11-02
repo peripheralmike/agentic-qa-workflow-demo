@@ -1,0 +1,6 @@
+{
+  "concerns": [
+    "Offline fixture deliberately contains an incorrect expected result for zero."
+  ],
+  "summary": "Hand-authored simulated model output. No AI model was called."
+}

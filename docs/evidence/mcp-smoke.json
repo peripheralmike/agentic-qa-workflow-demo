@@ -1,0 +1,16 @@
+{
+  "tools": [
+    "read_requirement",
+    "run_demo_suite",
+    "get_run_results"
+  ],
+  "run": {
+    "run_id": "b7bed4e98e7a",
+    "mode": "offline",
+    "passed": 11,
+    "total": 11,
+    "rejected": 1,
+    "draft": "runs/b7bed4e98e7a/draft-report.md"
+  },
+  "retrieved_results": true
+}

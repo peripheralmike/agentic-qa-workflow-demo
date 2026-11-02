@@ -1,0 +1,23 @@
+{
+  "accepted": [
+    "minimum",
+    "maximum",
+    "zero",
+    "precision",
+    "currency",
+    "duplicate",
+    "empty",
+    "atomicity",
+    "negative",
+    "overflow",
+    "nonfinite"
+  ],
+  "rejected": [
+    {
+      "id": "wrong-ai-assumption",
+      "reason": "Expected result contradicts the executable specification"
+    }
+  ],
+  "missing_coverage": [],
+  "executable": true
+}

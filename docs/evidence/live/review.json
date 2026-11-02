@@ -1,0 +1,31 @@
+{
+  "accepted": [
+    "valid_batch_001",
+    "valid_batch_002",
+    "valid_batch_003",
+    "invalid_batch_003",
+    "invalid_batch_004",
+    "invalid_batch_005",
+    "invalid_batch_006",
+    "invalid_batch_007",
+    "empty_batch",
+    "duplicate_reference",
+    "mixed_valid_invalid"
+  ],
+  "rejected": [
+    {
+      "id": "invalid_batch_001",
+      "reason": "Expected result contradicts the executable specification"
+    },
+    {
+      "id": "invalid_batch_002",
+      "reason": "Expected result contradicts the executable specification"
+    },
+    {
+      "id": "invalid_batch_008",
+      "reason": "Expected result contradicts the executable specification"
+    }
+  ],
+  "missing_coverage": [],
+  "executable": true
+}
